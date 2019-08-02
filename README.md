@@ -1,2 +1,1 @@
-# donateDUG-java-api
-Java API for donateDUG app
+# music-bucketlist-java-api
