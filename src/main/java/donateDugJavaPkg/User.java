@@ -25,11 +25,17 @@ public class User {
     @Column (name = "username", unique = true, length = 20, nullable = false)
     private String username;
 
+    @Column (name = "email", unique = true, length = 40, nullable = false)
+    private String email;
+
     @Column (name = "password", length = 100, nullable = false)
     private String password;
 
-    @Column (name = "location")
-    private String location;
+    @Column (name = "zipcode", length = 5, nullable = false)
+    private String zipcode;
+
+    @Column (name = "organization", length = 40, nullable = true)
+    private String organization;
 
     public String getUsername() {
         return username;
@@ -37,6 +43,14 @@ public class User {
 
     public void setUsername(String username) {
         this.username = username;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String getPassword() {
@@ -47,12 +61,20 @@ public class User {
         this.password = password;
     }
 
-    public String getLocation() {
-        return location;
+    public String getZipcode() {
+        return zipcode;
     }
 
-    public void setLocation(String location) {
-        this.location = location;
+    public void setZipcode(String zipcode) {
+        this.zipcode = zipcode;
+    }
+
+    public String getOrganization() {
+        return organization;
+    }
+
+    public void setOrganization(String organization) {
+        this.organization = organization;
     }
 
     public Set<Plot> getPlot() {

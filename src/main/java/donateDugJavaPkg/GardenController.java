@@ -12,6 +12,7 @@ import java.util.Set;
 @RestController
 @RequestMapping("/garden")
 //@JsonTypeName("gardens")
+@CrossOrigin(origins = "http://localhost:4200")
 public class GardenController {
 
     @Autowired

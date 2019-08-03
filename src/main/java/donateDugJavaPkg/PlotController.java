@@ -12,6 +12,7 @@ import java.util.Set;
 @RestController
 @RequestMapping("/plot")
 //@JsonTypeName("plots")
+@CrossOrigin(origins = "http://localhost:4200")
 public class PlotController {
 
     @Autowired

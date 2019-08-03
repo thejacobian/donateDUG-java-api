@@ -14,6 +14,7 @@ import java.util.Optional;
 
 @RestController
 //@JsonTypeName("users")
+@CrossOrigin(origins = "http://localhost:4200")
 public class UserController {
 
     @Autowired
@@ -92,7 +93,7 @@ public class UserController {
 //        }
 //    }
 
-    // SHOW CONCERTS Route
+    // SHOW PLOTS Route
     @GetMapping("/user/profile/plots")
 //    @JsonTypeInfo(include=JsonTypeInfo.As.WRAPPER_OBJECT, use=JsonTypeInfo.Id.NAME)
     public Iterable<Plot> showPlots(HttpSession session) throws Exception {
@@ -120,7 +121,7 @@ public class UserController {
         }
     }
 
-//    // SHOW CONCERTS Route
+//    // SHOW PLOTS Route
 //    @GetMapping("/user/{id}/plots")
 //    public Iterable<Plot> showPlots(@PathVariable("id") Long id, HttpSession session) throws Exception {
 //        //public String showUser() {
@@ -152,7 +153,7 @@ public class UserController {
 //        }
 //    }
 
-    // SHOW WISHES Route
+    // SHOW GARDENS Route
     @GetMapping("/user/profile/gardens")
     public Iterable<Garden> showGardens(HttpSession session) throws Exception {
         //public String showUser() {
@@ -179,7 +180,7 @@ public class UserController {
         }
     }
 
-//    // SHOW WISHES Route
+//    // SHOW GARDENS Route
 //    @GetMapping("/user/{id}/gardens")
 //    public Iterable<Garden> showGardens(@PathVariable("id") Long id, HttpSession session) throws Exception {
 //        //public String showUser() {
@@ -226,8 +227,10 @@ public class UserController {
             if (resUser.isPresent() && id == userSession.getId()) {
                 User userPath = resUser.get();
                 userPath.setUsername(formData.getUsername());
+                userPath.setEmail(formData.getEmail());
                 userPath.setPassword(formData.getPassword());
-                userPath.setLocation(formData.getLocation());
+                userPath.setZipcode(formData.getZipcode());
+                userPath.setOrganization(formData.getOrganization());
                 return userService.saveUser(userPath);
             }
             throw new Exception("No such user or unable to update data for this user");
