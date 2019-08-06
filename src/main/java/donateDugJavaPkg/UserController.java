@@ -214,7 +214,7 @@ public class UserController {
 
     // UPDATE Route
     @PutMapping("/user/{id}")
-    public User updateUser(@RequestBody User formData, @PathVariable("id") long id, HttpSession session) throws Exception {
+    public User updateUser(@RequestBody User formData, @PathVariable("id") Long id, HttpSession session) throws Exception {
         System.out.println("--------------------------------------------------");
         System.out.println("***PUT from /user/id Update Route is activated!***");
         System.out.println("--------------------------------------------------");
